@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://8pjkxqj2hxdd"]
+
+[ext_resource type="PackedScene" uid="uid://tw0vq76bl1y0" path="res://scenes/levels/level.tscn" id="1_jbqir"]
+[ext_resource type="PackedScene" uid="uid://cnqjuv2ibgtiq" path="res://scenes/ships/dart_ship.tscn" id="2_yautc"]
+
+[node name="TestLevel" unique_id=382609958 instance=ExtResource("1_jbqir")]
+
+[node name="DartShip" parent="Ships" parent_id_path=PackedInt32Array(759094924) index="0" unique_id=1167706738 instance=ExtResource("2_yautc")]
+position = Vector2(175, 110)
+
+[node name="Player1" parent="Players" parent_id_path=PackedInt32Array(630908945) index="0" unique_id=369746998 node_paths=PackedStringArray("ship")]
+player_name = "Player 1"
+ship = NodePath("../../Ships/DartShip")

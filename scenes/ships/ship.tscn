@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bcb333gm0ss25"]
+
+[ext_resource type="Script" uid="uid://fb815gigplik" path="res://scenes/ships/ship.gd" id="1_q631a"]
+
+[node name="Ship" type="RigidBody2D" unique_id=1167706738]
+script = ExtResource("1_q631a")
+
+[node name="BodyShape" type="Polygon2D" parent="." unique_id=893875241]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1604917119]
+
+[node name="EnginePoint" type="Marker2D" parent="." unique_id=617990702]
+
+[node name="GunPoint" type="Marker2D" parent="." unique_id=1606322710]
