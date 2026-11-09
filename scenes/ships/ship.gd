@@ -10,6 +10,10 @@ extends RigidBody2D
 var afterburner: bool = false
 
 @onready var body_shape: Polygon2D = $BodyShape
+@onready var thrust_particles: GPUParticles2D = $ThrustParticles
+
+func _ready() -> void:
+	thrust_particles.emitting = false
 
 func set_color(color: Color) -> void:
 	body_shape.color = color
@@ -20,18 +24,20 @@ func set_color(color: Color) -> void:
 ## Both should be on domain [-1.0, 1.0]
 func handle_movement(fb: float, lr: float) -> void:
 	if fb > 0.0:
-		print("thrusting")
+		thrust_particles.emitting = true
 		# for keyboard, fb will always have magnitude 1
 		var force: Vector2 = fb * Vector2.from_angle(rotation) * forward_thrust
 		if afterburner:
 			force *= afterburner_boost
 		apply_central_force(force)
 	elif fb < 0.0:
+		thrust_particles.emitting = false
 		# for keyboard, fb will always have magnitude 1
 		apply_central_force(fb * Vector2.from_angle(rotation) * backward_thrust)
+	else:
+		thrust_particles.emitting = false
 	
 	if lr != 0.0:
-		print("turning")
 		# for keyboard, lr will always have magnitude 1
 		apply_torque(lr * turning_thrust)
 

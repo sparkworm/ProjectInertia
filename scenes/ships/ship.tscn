@@ -2,6 +2,33 @@
 
 [ext_resource type="Script" uid="uid://fb815gigplik" path="res://scenes/ships/ship.gd" id="1_q631a"]
 
+[sub_resource type="Gradient" id="Gradient_3cxh5"]
+offsets = PackedFloat32Array(0.10655738, 0.647541, 1)
+colors = PackedColorArray(1.5720325, 1.5720325, 0.8462861, 1, 0.92941177, 0.41568628, 0.18431373, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3cxh5"]
+gradient = SubResource("Gradient_3cxh5")
+
+[sub_resource type="Curve" id="Curve_3cxh5"]
+_data = [Vector2(0, 0.26966298), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3cxh5"]
+curve = SubResource("Curve_3cxh5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3cxh5"]
+lifetime_randomness = 0.45
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 9.0
+initial_velocity_min = 306.44998
+initial_velocity_max = 306.44998
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_3cxh5")
+color_ramp = SubResource("GradientTexture1D_3cxh5")
+
 [node name="Ship" type="RigidBody2D" unique_id=1167706738]
 script = ExtResource("1_q631a")
 
@@ -12,3 +39,8 @@ script = ExtResource("1_q631a")
 [node name="EnginePoint" type="Marker2D" parent="." unique_id=617990702]
 
 [node name="GunPoint" type="Marker2D" parent="." unique_id=1606322710]
+
+[node name="ThrustParticles" type="GPUParticles2D" parent="." unique_id=1791273078]
+amount = 16
+lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_3cxh5")
