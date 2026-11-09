@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyhvds4lk1wo0" path="res://scenes/levels/level.gd" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://cydcgf6xinw1h" path="res://scenes/player.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://ltxoaa85xto3" path="res://scenes/border.tscn" id="3_b2cq8"]
 
 [node name="Level" type="Node2D" unique_id=382609958]
 script = ExtResource("1_377w7")
@@ -18,3 +19,13 @@ key_down = "p1_down"
 key_special = "p1_special"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1744487367]
+
+[node name="Borders" type="Node2D" parent="." unique_id=1945849894]
+
+[node name="BorderTop" parent="Borders" unique_id=390335606 instance=ExtResource("3_b2cq8")]
+
+[node name="BorderBottom" parent="Borders" unique_id=447435422 instance=ExtResource("3_b2cq8")]
+
+[node name="BorderLeft" parent="Borders" unique_id=1279790380 instance=ExtResource("3_b2cq8")]
+
+[node name="BorderRight" parent="Borders" unique_id=1684631195 instance=ExtResource("3_b2cq8")]

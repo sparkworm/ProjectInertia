@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://fb815gigplik" path="res://scenes/ships/ship.gd" id="1_q631a"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b2cq8"]
+friction = 0.0
+bounce = 0.3
+
 [sub_resource type="Gradient" id="Gradient_3cxh5"]
 offsets = PackedFloat32Array(0.10655738, 0.647541, 1)
 colors = PackedColorArray(1.5720325, 1.5720325, 0.8462861, 1, 0.92941177, 0.41568628, 0.18431373, 1, 0, 0, 0, 1)
@@ -30,6 +34,7 @@ scale_curve = SubResource("CurveTexture_3cxh5")
 color_ramp = SubResource("GradientTexture1D_3cxh5")
 
 [node name="Ship" type="RigidBody2D" unique_id=1167706738]
+physics_material_override = SubResource("PhysicsMaterial_b2cq8")
 script = ExtResource("1_q631a")
 
 [node name="BodyShape" type="Polygon2D" parent="." unique_id=893875241]
